@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+}
+
+/* html, body{
+  margin: 0;
+  padding: 0;
+  font-family: "Josefin Sans", sans-serif;
+} */
+
+.lightBG {
+  background-color: hsl(0, 0%, 98%);
+  height: 100vh;
+}
+
+.darkBG {
+  background-color: hsl(235, 21%, 11%);
+  height: 100vh;
+}
+
+.top {
+  position: fixed;
+  width: 100%;
+  height: 200px;
+  top: 0;
+}
+
+.top_inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 35%;
+  margin: 2% auto;
+}
+
+.top_inner h1 {
+  font-size: 700;
+  letter-spacing: 12px;
+  color: hsl(236, 33%, 92%);
+}
+
+.done, .notDone{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: "1px solid hsl(233, 11%, 84%)",
+}
+
+.done p{
+  text-decoration: line-through;
+}
+.main_content{
+  z-index: 1000;
+  width: 50%;
+  /* margin: 20% auto 15px; */
+  margin: 8% auto;
+   /* margin-top: 20%;  */
+  position: absolute;
+}
+
+.main_content ul{
+  width: 60%;
+  margin: 1% auto;
+  padding-left: 12px;
+  padding-right: 12px;
+  border-radius: 6px;
+}
+.add_todo{
+  width: 60%;
+  margin: 1% auto;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+.add_todo input{
+  width: 65%;
+  margin: 0 auto;
+  border: 0px solid ;
+  outline: none;
+}
+
+/* .add_todo input{
+  width: 85%;
+  margin: ;
+} */
+/* .add_todo input {
+  width: 70%;
+  height: 20px;
+   padding-right: 50px; 
+  padding: 10px;
+}
+
+.add_todo button {
+  margin-left: -50px;
+  height: 20px;
+  width: 50px;
+} */
+/* .main_section{
+  width: ;
+} */
+
+.controls{
+  display: flex;
+  width: 60%;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin: 0 auto;
+
+}
+
+.buttons{
+  display: flex;
+  justify-content: space-between;
+  width: 50%;
+}
+
+/* .buttons button{
+  
+} */
