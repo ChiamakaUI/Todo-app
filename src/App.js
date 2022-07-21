@@ -157,8 +157,6 @@ function App() {
        <div style={{boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", width: "auto", borderRadius: "6px"}}>
        <ul style={{ backgroundColor: bgColor }}>
           {display.map((ele, index) => (
-         
-
             <SingleToDo
               text={ele.content}
               key={ele.id}
@@ -188,7 +186,7 @@ function App() {
           <button onClick={clearCompleted}>Clear Completed</button>
         </div>}
        </div>
-        
+        <h6>Drag and Drop to reorder list</h6>
       </div>
         {/* </div> */}
       

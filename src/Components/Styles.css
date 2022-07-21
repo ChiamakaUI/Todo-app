@@ -119,3 +119,8 @@ body {
   border: 1px solid transparent;
   cursor: pointer;
 }
+
+.main_content h6{
+  font-size: 18px;
+  text-align: center;
+}
