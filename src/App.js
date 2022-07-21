@@ -4,7 +4,7 @@ import darkImage from "./Components/Images/bg-desktop-dark.jpg";
 import lightImage from "./Components/Images/bg-desktop-light.jpg";
 import ToggleIcon from "./Components/ToggleIcon";
 import SingleToDo from "./Components/SingleToDo";
-import { BsFillCircleFill } from "react-icons/bs";
+import { BsFillCircleFill} from "react-icons/bs";
 import Draggable from 'react-draggable';
 
 
@@ -23,12 +23,12 @@ function App() {
   //     }
   // ]
   const [todos, setTodos] = useState([]);
-  const bgColor = theme === "dark" ? "hsl(235, 21%, 11%)" : " hsl(0, 0%, 98%)";
+  const bgColor = theme === "dark" ? "hsl(237, 14%, 26%)" : " hsl(0, 0%, 98%)";
   const textColor = theme === "dark" ? "hsl(234, 39%, 85%)" : "hsl(235, 19%, 35%)"
   const backGround = theme === "dark" ? darkImage : lightImage;
   const style = {
     color: bgColor,
-    fontSize: "1.5em",
+    fontSize: "1.8em",
     border: "1px solid hsl(233, 11%, 84%)",
     borderRadius: "50%",
   };
@@ -44,6 +44,10 @@ function App() {
 
   const addTodos = () => {
     const val = ref.current.value;
+    if(!val){
+      alert('Please, fill to create a todo')
+      return
+    }
 
     const newTodo = {
       id: generateId(),
@@ -52,6 +56,7 @@ function App() {
     };
 
     setTodos((prev) => [...prev, newTodo]);
+    ref.current.value = '';
   };
   const removeTodo = (ID) => {
     const items = [...todos];
@@ -100,11 +105,9 @@ function App() {
       setTodos(items)
     }
     const clearCompleted = () =>{
-      const items = [...todos];
-      items.forEach(ele =>{
-        ele.isDone = false
-      })
-      setTodos(items)
+        const items = [...todos];
+        const completedItems = items.filter(ele => !ele.isDone)
+      setTodos(completedItems)
     }
   
     const dragStart = (e, position) => {
@@ -129,6 +132,7 @@ function App() {
     
   return (
     <div style={{ backgroundColor: bgColor, height: "100vh", color: textColor}}>
+      {/* <style>{"body {background-color: '+bgColor+';}"}</style> */}
       <div className="top" style={{ backgroundImage: `url(${backGround})` }}>
         <div className="top_inner">
           <h1>TODO</h1>
@@ -138,7 +142,8 @@ function App() {
 
       {/* <section className="main_section"> */}
       <Draggable nodeRef={nodeRef}>
-      <div className="main_content" ref={nodeRef}>
+        {/* <div style={{width: "50%", margin: "1% auto"}}> */}
+        <div className="main_content" ref={nodeRef}>
         <div className="add_todo" style={{ backgroundColor: bgColor }}>
           <BsFillCircleFill onClick={addTodos} style={style} />
           <input
@@ -149,8 +154,8 @@ function App() {
           />
           {/* <button onClick={addTodos}>Submit</button> */}
         </div>
-       
-        <ul style={{ backgroundColor: bgColor }}>
+       <div style={{boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px", width: "auto", borderRadius: "6px"}}>
+       <ul style={{ backgroundColor: bgColor }}>
           {display.map((ele, index) => (
          
 
@@ -161,11 +166,12 @@ function App() {
               func={() => toggleDone(ele.isDone, ele.id)}
               removeFunc={() => removeTodo(ele.id)}
               // style={{  }}
-              cancelStyle ={{backgroundColor: "transparent"}} 
+              bgStyle ={bgColor} 
               eleIndex={index}
               dragEnterFunc={dragEnter}
               dragStartFunc={dragStart}
               dropFunc={drop}
+              textStyle={textColor}
             
             />
             
@@ -181,7 +187,11 @@ function App() {
           </div>
           <button onClick={clearCompleted}>Clear Completed</button>
         </div>}
+       </div>
+        
       </div>
+        {/* </div> */}
+      
        </Draggable>
       {/* </section> */}
 
