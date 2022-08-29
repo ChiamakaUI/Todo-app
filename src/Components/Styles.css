@@ -69,9 +69,6 @@ body {
   font-size: 18px;
  }
 
-/* .main_content ul li{
-  border-bottom: 1px solid red !important;
-} */
 .add_todo{
   margin: 1% auto;
   display: flex;
@@ -118,6 +115,7 @@ body {
   background-color: transparent;
   border: 1px solid transparent;
   cursor: pointer;
+  text-transform: capitalize;
 }
 
 .main_content h6{
